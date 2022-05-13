@@ -173,21 +173,82 @@ function logicalOperators(mode) {
 // logicalOperators();
 
 // login checker
-function loginChecker() {
-    let userName = prompt("Please enter username: ");
+const loginButton = document.getElementById('login-button');
+loginButton.addEventListener('click', loginFunction);
+loginButton.addEventListener('keypress', test);
+
+
+
+
+let wrongAttemptCount = 0;
+const shameArray = [];
+function loginFunction() {
+    const userName = document.getElementById('username-form').value;
+    console.log(userName);
+    const passwd = document.getElementById('password-form').value;
+    const loginResult = document.getElementById('login-result');
+ 
+    console.log(`Wrong attempts: ${wrongAttemptCount}`);
     if (userName === 'Admin') {
-        let passwd = prompt("Password: ");
         if (passwd === 'TheMaster') {
-            alert(`Login successful.\nWelcome, ${userName}!`);
+            loginResult.textContent = `Login successful.\nWelcome, ${userName}!`;
+            // alert(`Login successful.\nWelcome, ${userName}!`);
         } else if (passwd) {
-            alert(`Wrong password`);
+            loginResult.textContent = `Wrong password, "${userName}".`;
+            wrongAttemptCount++;
+            if (wrongAttemptCount > 15) {
+                shameArray.push(':/   ');
+                const shameString = shameArray.join('');
+                console.log(shameString);
+                loginResult.innerHTML = shameString;
+            } else if (wrongAttemptCount > 10) {
+                loginResult.textContent = `Dude. Stop.`;    
+            } else if (wrongAttemptCount > 5) {
+ 
+                loginResult.textContent = `STILL the wrong password, "${userName}" :/`;
+            }
+            // alert(`Wrong password, "${userName}"`);
         } else {
-            alert(`Canceled`);
+            alert(`Please enter your password`);
         }
     } else {
         alert("I don't know you.");
     }
 }
-// loginChecker();
+function test(event) {
+    if (event.key === 'Enter') {
+        loginFunction();
+    }
+}
+
+
+
+
+
+
 
 // Source: https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Building_blocks/conditionals
+
+
+const weatherSelect = document.getElementById('weather');  // Assigns id="weather" to weatherSelect    
+// const weatherSelect = document.querySelector('select');
+const weatherAdvice = document.getElementById('weather-advice');
+// const weatherAdvice = document.querySelector('p');
+weatherSelect.addEventListener('change', setWeather);   // Runs setWeather() when a change event on id="weather" occurs
+                                                        // Do NOT pass the function's brackets 
+function setWeather() {
+    const choice = weatherSelect.value;     // Returns value of the element's text field
+    if (choice === 'sunny') {
+        weatherAdvice.textContent = 'It is nice and sunny outside. Wear shorts! Go to the beach, or the park, and get an ice cream.';
+    } else if (choice === 'raining') {
+        weatherAdvice.textContent = 'Rain is falling outside; take a rain coat and an umbrella, and don\'t stay out for too long.';
+
+    } else if (choice === 'snowing') {
+        weatherAdvice.textContent = 'The snow is coming down — it is freezing! Best to stay in with a cup of hot chocolate, or go build a snowman.';
+            
+    } else if (choice === 'overcast') {
+        weatherAdvice.textContent = 'It isn\'t raining, but the sky is grey and gloomy; it could turn any minute, so take a rain coat just in case.';
+    } else {
+        weatherAdvice.textContent = '';
+    }
+}

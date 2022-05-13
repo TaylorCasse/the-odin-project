@@ -1,0 +1,32 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+#weather-container,  #login{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+   
+
+}
+
+#weather-container * {
+    margin: 10px;
+}
+
+input {
+    margin: 10px;
+}
+
+#login-result {
+    margin: 20px;
+}
