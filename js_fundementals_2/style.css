@@ -10,21 +10,31 @@ body {
     gap: 20px;
 }
 
-#weather-container, #login, #ternary {
+
+.center {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-   
-
+    
 }
 
-#weather-container * {
-    margin: 10px;
+.center * {
+    margin: 5px;
+    
 }
 
-input {
-    margin: 10px;
+#username-password {
+    display: flex;
+    flex-direction: column;
+}
+
+.row {
+    display: flex;
+}
+
+h1 {
+    margin-bottom: 10px;
 }
 
 #login-result {

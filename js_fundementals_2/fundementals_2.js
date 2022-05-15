@@ -189,14 +189,15 @@ function loginFunction() {
     const loginResult = document.getElementById('login-result');
  
     console.log(`Wrong attempts: ${wrongAttemptCount}`);
+    // Doing logins like this is obviously super bad practice
+    // Checks that the correct username has been entered
     if (userName === 'Admin') {
+        // Checks that the correct password has been entered (NEVER DO IT LIKE THIS)
         if (passwd === 'TheMaster') {
             loginResult.textContent = `Login successful.\nWelcome, ${userName}!`;
         } else if (passwd) {
-            loginResult.textContent = `Wrong password, "${userName}".`;
             wrongAttemptCount++;
-
-            // Just a fun easter egg
+            // Some fun easter eggs
             if (wrongAttemptCount > 15) {
                 shameArray.push(':/   ');
                 loginResult.innerHTML = shameArray.join('');
@@ -204,7 +205,10 @@ function loginFunction() {
                 loginResult.textContent = `Dude. Stop.`;    
             } else if (wrongAttemptCount > 5) {
                 loginResult.textContent = `STILL the wrong password, whoever you are :/`;
+            } else {
+                loginResult.textContent = `Wrong password, "${userName}".`;
             }
+ 
         } else {
             loginResult.innerHTML(`Please enter your password`);
         }
@@ -224,7 +228,8 @@ document.addEventListener("keydown", function(event) {
 }, false);
 
 
-// Simple JS practice app
+// Weather app using if else
+// Source: https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Building_blocks/conditionals
 
 function weatherIfElse() {
     const weatherSelect = document.getElementById('weather');  // Assigns id="weather" to weatherSelect    
@@ -300,6 +305,8 @@ weatherSwitch();
 
 // Ternary operator
 // Useful to test if a variable is true or false, more compact than if/else and switch
+// Syntax: ( boolean ) ? return if true : return if false
+// Source: https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Building_blocks/conditionals
 
 const ternarySelect = document.getElementById('true-false-select');
 ternarySelect.addEventListener('change', displayIsReady);
@@ -309,3 +316,19 @@ function displayIsReady() {
     document.getElementById('ready-output').textContent = readyStatement;
 }
 
+
+const html = document.querySelector('html')
+function themeUpdate(bgColor, textColor) {
+    html.style.background = bgColor;
+    html.style.color = textColor;
+}
+
+
+// Arrow notation is usually used for event listeners
+// Syntax: (arg1, arg2, arg3) => { function body } 
+// brackets can be omitted for single args and curly brackets can be ommitted entirely, but helps for multi line function bodies
+
+document.getElementById('light-dark-toggle').addEventListener('change', () => {
+    isDark = document.getElementById('light-dark-toggle').value === 'dark';         // Checks if "dark" has been selected
+    ( isDark ) ? themeUpdate('#000000', '#FFF') : themeUpdate('white', 'black');    // Updates the theme to black background and white text if isDark === true, reverses the colors otherwise
+});
