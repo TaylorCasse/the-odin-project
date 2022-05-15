@@ -10,7 +10,7 @@ body {
     gap: 20px;
 }
 
-#weather-container,  #login{
+#weather-container, #login, #ternary {
     display: flex;
     justify-content: center;
     align-items: center;
