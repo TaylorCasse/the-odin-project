@@ -210,7 +210,7 @@ function loginFunction() {
             }
  
         } else {
-            loginResult.innerHTML(`Please enter your password`);
+            loginResult.innerHTML = `Please enter your password`;
         }
     } else {
         loginResult.innerHTML = "I don't know you.";
@@ -258,7 +258,7 @@ function weatherIfElse() {
 // weatherIfElse();
 
 // Switch statements
-// More efficient than if/else, but can only test a single variable
+// More efficient than if/else (creates a jump table when compiled), but can only test a single variable
 const i = 2;
 switch (i) {
     case 1:
@@ -274,10 +274,8 @@ switch (i) {
 
 // Weather app with a switch statement
 function weatherSwitch() {
-    const weatherSelect = document.getElementById('weather');  // Assigns id="weather" to weatherSelect    
-    // const weatherSelect = document.querySelector('select');
+    const weatherSelect = document.getElementById('weather');  // Assigns id="weather" to weatherSelect
     const weatherAdvice = document.getElementById('weather-advice');
-    // const weatherAdvice = document.querySelector('p');
     weatherSelect.addEventListener('change', setWeather);   // Runs setWeather() when a change event on id="weather" occurs
                                                             // Do NOT pass the function's brackets 
     function setWeather() {
@@ -305,7 +303,7 @@ weatherSwitch();
 
 // Ternary operator
 // Useful to test if a variable is true or false, more compact than if/else and switch
-// Syntax: ( boolean ) ? return if true : return if false
+// Syntax: ( boolean ) ? return if true : return if false;
 // Source: https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Building_blocks/conditionals
 
 const ternarySelect = document.getElementById('true-false-select');
@@ -316,13 +314,11 @@ function displayIsReady() {
     document.getElementById('ready-output').textContent = readyStatement;
 }
 
-
 const html = document.querySelector('html')
 function themeUpdate(bgColor, textColor) {
     html.style.background = bgColor;
     html.style.color = textColor;
 }
-
 
 // Arrow notation is usually used for event listeners
 // Syntax: (arg1, arg2, arg3) => { function body } 
@@ -332,3 +328,5 @@ document.getElementById('light-dark-toggle').addEventListener('change', () => {
     isDark = document.getElementById('light-dark-toggle').value === 'dark';         // Checks if "dark" has been selected
     ( isDark ) ? themeUpdate('#000000', '#FFF') : themeUpdate('white', 'black');    // Updates the theme to black background and white text if isDark === true, reverses the colors otherwise
 });
+
+
