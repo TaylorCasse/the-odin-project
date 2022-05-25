@@ -29,7 +29,8 @@ const para = document.querySelector('p');
 button.addEventListener('click', () => {
     console.log('Working');
     // Use .value to get text from an input field
-    const input = document.getElementById('user-input').value;
+    // const input = document.getElementById('user-input').value;
+    const input = document.querySelector('#user-input').value;
     para.textContent = input;
 })
 
@@ -46,3 +47,23 @@ function myFunction2(param='This is an argument') {
 console.log(myFunction2()); // 'This is the default'
 sampleString = 'This is a user speficied argument'
 console.log(myFunction2(sampleString));   // 'This is a user speficied argument'
+
+
+// isNaN vs Number.isNaN
+// Still don't fully understand this
+const testArr = [NaN, 'A string', 10, undefined, true, [], 'A string'/2];
+
+// isNaN is useful for checking inputs
+// confusing because it checks if something isn't a number, rather than is NaN
+const newArr2 = testArr.map((value) => isNaN(value));
+console.log(newArr2);   // [true, true, false, true, false, false, true]
+
+// Number.isNaN
+// Fixes the problems with isNaN, returns true only if parameter === NaN
+const newArr = testArr.map((value) => Number.isNaN(value));
+console.log(newArr);    // [true, false, false, false, false, false]
+
+// But NaN === NaN returns false 
+const newArr3 = testArr.map( (value) => value === NaN);
+console.log(newArr3);   // [false, false, false, false, false, false]
+
