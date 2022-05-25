@@ -76,11 +76,11 @@ function test1(value) {
 }
 
 function test2(arr) {
-    return arr.map( (value) => Number.isNaN(value));
+    return arr.map((value) => Number.isNaN(value));
 }
 
 function testingNaN(arr, func) {
-    for ( let i = 0; i < arr.length; i++ ) {
+    for (let i = 0; i < arr.length; i++ ) {
         console.log(arr[i] + ': ' + func(arr[i]));
     }
 }    
@@ -104,15 +104,15 @@ function isLeapYear(year) {
     if ((year % 4) === 0) {
         if (year % 100 === 0) {
             if (year % 400 === 0) {
-                return true;
+                return 'Leap year.';
             } else {
-                return false;
+                return 'Not a leap year.';
             }
         } else {
-            return true;
+            return 'Leap year.';
         }
     } else {
-        return false;
+        return 'Not a leap year.';
     }
 }
 
