@@ -97,3 +97,28 @@ console.log(+true); // 1
 // sidenote: isNaN exists purely because NaN can't be compaired to anything, even itself
 // it is the only datatype that does this
 console.log(NaN == NaN);    // false
+
+
+// Leap year calculator for fun and to prove a point
+function isLeapYear(year) {
+    if ((year % 4) === 0) {
+        if (year % 100 === 0) {
+            if (year % 400 === 0) {
+                return true;
+            } else {
+                return false;
+            }
+        } else {
+            return true;
+        }
+    } else {
+        return false;
+    }
+}
+
+const startYear = 1970;
+for ( let i = 0; i < 100; i++) {
+    currentYear = startYear + i;
+    console.log(currentYear + ': ' + isLeapYear(currentYear));
+}
+
