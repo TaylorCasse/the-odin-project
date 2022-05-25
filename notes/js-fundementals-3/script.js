@@ -65,7 +65,7 @@ const newArr = testArr.map((value) => Number.isNaN(value));
 console.log(newArr);    // [true, false, false, false, false, false]
 
 // But NaN === NaN returns false 
-const newArr3 = testArr.map( (value) => value === NaN);
+const newArr3 = testArr.map((value) => value === NaN);
 console.log(newArr3);   // [false, false, false, false, false, false]
 
 
@@ -121,4 +121,31 @@ for ( let i = 0; i < 100; i++) {
     currentYear = startYear + i;
     console.log(currentYear + ': ' + isLeapYear(currentYear));
 }
+
+document.getElementById('fizz-button').addEventListener('click', () =>{
+    const inputNumber = document.getElementById('fizz-input').value;
+    console.log(typeof +inputNumber)
+    if (isNaN(+inputNumber)) {
+        alert('Please enter a number');
+    } else {
+        const fizzArr = [];
+        for (let i = 0; i < inputNumber; i++) {
+            if (i % 3 == 0  && i % 5 == 0) {
+                fizzArr.push('FizzBuzz');
+            } else if (i % 3 === 0) {
+                fizzArr.push('Fizz');
+            } else if (i % 5 === 0) {
+                fizzArr.push('Buzz');
+            } else {
+                fizzArr.push(i);
+            }
+            
+        }
+        const fizzStr = fizzArr.join(' ');
+        document.getElementById('fizz-output').innerHTML = fizzStr;
+    }
+
+})
+
+
 
