@@ -51,6 +51,7 @@ console.log(myFunction2(sampleString));   // 'This is a user speficied argument'
 
 // isNaN vs Number.isNaN
 // Still don't fully understand this
+
 const testArr = [NaN, 'A string', 10, undefined, true, [], 'A string'/2];
 
 // isNaN is useful for checking inputs
@@ -85,3 +86,14 @@ function testingNaN(arr, func) {
 }    
 
 testingNaN(testArr, test1);
+
+// I now understand this. isNaN() tries to coerce its arguments to numbers,
+// thus arguments with a primitive numeric value (booleans, empty strings/arrays) will
+// be coerced into their numeric value. Number.isNaN() doesn't perform this coersion
+console.log(+[]);   // 0
+console.log(+'');   // 0
+console.log(+true); // 1
+
+// sidenote: isNaN exists purely because NaN can't be compaired to anything, even itself
+// it is the only datatype that does this
+console.log(NaN == NaN);    // false
