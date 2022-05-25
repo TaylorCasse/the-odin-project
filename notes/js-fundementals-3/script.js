@@ -59,7 +59,7 @@ const newArr2 = testArr.map((value) => isNaN(value));
 console.log(newArr2);   // [true, true, false, true, false, false, true]
 
 // Number.isNaN
-// Fixes the problems with isNaN, returns true only if parameter === NaN
+// Fixes the problems with isNaN, returns true only if parameter === NaN (?)
 const newArr = testArr.map((value) => Number.isNaN(value));
 console.log(newArr);    // [true, false, false, false, false, false]
 
@@ -67,3 +67,21 @@ console.log(newArr);    // [true, false, false, false, false, false]
 const newArr3 = testArr.map( (value) => value === NaN);
 console.log(newArr3);   // [false, false, false, false, false, false]
 
+
+// Trying out functions as parameters
+function test1(value) {
+    // return arr.map( (value) => isNaN(value) );
+    return isNaN(value)
+}
+
+function test2(arr) {
+    return arr.map( (value) => Number.isNaN(value));
+}
+
+function testingNaN(arr, func) {
+    for ( let i = 0; i < arr.length; i++ ) {
+        console.log(arr[i] + ': ' + func(arr[i]));
+    }
+}    
+
+testingNaN(testArr, test1);
