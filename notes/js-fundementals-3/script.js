@@ -173,9 +173,27 @@ function primes(startNum, endNum) {
     return primeArr.join(' ');
 }
 
-console.log(primes(0, 10000));
+// console.log(primes(0, 10000));
 
 
-function isPrime(num) {
-    
-} 
+function primeCheck(num) {
+    let isPrime = true;
+    for (let i = 0; i < num; i++) {
+        if (num % i === 0 && ![0,1].includes(i)) {
+            isPrime = false;
+        }
+    }
+    return isPrime;
+}
+
+function primeGen(num) {
+    const primeArr = [];
+    for (let i = 0; i <= num; i++) {
+        if (primeCheck(i)) {
+            primeArr.push(i);
+        }
+    }
+    return primeArr.join(' ');
+}
+
+console.log(primeGen(100));
