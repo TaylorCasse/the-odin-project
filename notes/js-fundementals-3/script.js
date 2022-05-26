@@ -197,3 +197,11 @@ function primeGen(num) {
 }
 
 console.log(primeGen(100));
+
+// return the third highest number in an array
+// Psudocode: 
+// input an array of numbers of any size
+// find the largest number, pop it off x3
+// return the third number popped from the array
+
+const arr = [1, 2, 3, 4, 5, 6];
