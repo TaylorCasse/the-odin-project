@@ -116,11 +116,11 @@ function isLeapYear(year) {
     }
 }
 
-const startYear = 1970;
-for ( let i = 0; i < 100; i++) {
-    currentYear = startYear + i;
-    console.log(currentYear + ': ' + isLeapYear(currentYear));
-}
+// const startYear = 1970;
+// for ( let i = 0; i < 100; i++) {
+//     currentYear = startYear + i;
+//     console.log(currentYear + ': ' + isLeapYear(currentYear));
+// }
 
 document.getElementById('fizz-button').addEventListener('click', () =>{
     const inputNumber = document.getElementById('fizz-input').value;
@@ -129,7 +129,7 @@ document.getElementById('fizz-button').addEventListener('click', () =>{
         alert('Please enter a number');
     } else {
         const fizzArr = [];
-        for (let i = 0; i < inputNumber; i++) {
+        for (let i = 1; i <= inputNumber; i++) {
             if (i % 3 == 0  && i % 5 == 0) {
                 fizzArr.push('FizzBuzz');
             } else if (i % 3 === 0) {
@@ -147,5 +147,35 @@ document.getElementById('fizz-button').addEventListener('click', () =>{
 
 })
 
+// Initialize arrays
+const primeArr = [];
+const numArr = [];
+function primes(startNum, endNum) {
+    for (let i = startNum; i <= endNum; i++) {
+        numArr.push(i);
+        let isPrime = true;
+
+        // Loops through the first half of all numbers leading up to the current number
+        for (let j = 0; j <= Math.ceil(numArr.length / 2); j++) {
+
+            // Not prime if divisible by any previous number that isn't 1 or itself
+            if ((i % j === 0) && ![1, i].includes(j)) {
+                isPrime = false;
+            }
+            // console.log(`i: ${i}, j: ${j}, i % j: ${i % j}, isPrime: ${isPrime}`);
+        }
+
+        // Hardcoded condition that 0 and 1 aren't prime (inelegant?)
+        if (isPrime && ![0, 1].includes(i)) {
+            primeArr.push(i);
+        }
+    }
+    return primeArr.join(' ');
+}
+
+console.log(primes(0, 10000));
 
 
+function isPrime(num) {
+    
+} 
