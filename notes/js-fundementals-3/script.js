@@ -211,7 +211,7 @@ function primeGen(num) {
 // passing in the return value from the calculation on the previous value.
 
 
-const reduceArr = [1, 2, 3, 4, 5];
+const reduceArr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 function reduceDemo(arr) {
     return arr.reduce((previousValue, currentValue) => previousValue + currentValue, 0);
 }
@@ -224,31 +224,72 @@ function thirdHighestDemo() {
     // find the largest number, pop it off x3
     // return the third number popped from the array
 
-    const thirdHighestArr = [1, 2, 3, 4, 5, 6];
+
+
+    function numberSuffix(n) {
+        // generates the number suffix based on the last digit of the number
+        switch (n % 10) {
+            case 1: {
+                suffix = 'st';
+                break
+            }
+            case 2: {
+                suffix = 'nd';
+                break;
+            }
+            case 3: {
+                suffix = 'rd';
+                break;     
+            }
+            default: {
+                suffix = 'th';
+            }
+        }
+        return suffix;
+    }
+
+    function genRandArr(n) {
+        // Generates an array of random numbers from 0 - 1000
+        const arr = [];
+        for (let i = 0; i < +n; i++) {
+            arr.push(Math.random)
+        }
+    }
+
+    const thirdHighestArr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
     // Using a loop
-    console.log('Third highest using loop');
-    function thirdHighestLoop(arr) {
-        let highestValue = 0;
-        let highestValueIndex = 0;
-        for (let j = 0; j < 3; j++) {
+    function thirdHighestLoop(arr, n) {
+        const suffix = numberSuffix(n);
+
+        console.log('Nth Highest Value Using Loop');
+        console.log(`\nOriginal array : [${arr}]`);
+        if (n > arr.length) {
+            return 'Error: n > array.length';
+        }
+
+
+
+        for (let j = 0; j < n; j++) {
+            // Finds the larget value in the array n times
+            let highestValue = 0;
+            let highestValueIndex = 0;
             for (let i = 0; i < arr.length; i++) {
-                console.log('outerloop');
+                // Finds the largest value in the array
                 if (highestValue < arr[i]) {
                     highestValue = arr[i];
                     highestValueIndex = i;
-                    console.log(`Highest value: ${highestValue}\nIteration: ${i}`);
+                    // console.log(`Highest value: ${highestValue}\nIteration: ${i}`);
                 }
             }
-            // .splice() edits an array by adding or removing elements at a given index
-            console.log(arr.splice(highestValueIndex, 1));
-            arr.splice(highestValueIndex, 1);
-            // let someVar = j;
+            // console.log(`${n}${suffix} highest value = ${arr.slice(highestValueIndex, highestValueIndex + 1)}`);
+            // console.log(arr);
+            var returnValue = arr.splice(highestValueIndex, highestValueIndex + 1);
         }
-        return arr;
+        console.log(`${n}${suffix} highest number: ${returnValue}`);
     }
-
-    console.log(`Third highestoutput: ${thirdHighestLoop(thirdHighestArr)}`);
+    
+    thirdHighestLoop(thirdHighestArr, 5);
 
     // Using the array.reduce() method
     function getMaxOfArray(numArr) {
@@ -259,6 +300,6 @@ function thirdHighestDemo() {
         return getMaxOfArray(arr);
     }
 
-    console.log(thirdHighest());
+    // console.log(thirdHighest());
 }
 thirdHighestDemo();
