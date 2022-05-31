@@ -1,0 +1,17 @@
+* {
+    box-sizing: border-box;
+    border: 1px blue solid;
+    margin: 5px;
+    padding: 0;
+}
+
+#main-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+h1 {
+    display: flex;
+    justify-content: center;
+}
