@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <title>Loops: Task 1</title>
+    <style>
+      p {
+        color: purple;
+        margin: 0.5em 0;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+    </style>
+    <!-- <link rel="stylesheet" href="../styles.css" /> -->
+  </head>
+
+  <body>
+
+    <section class="preview">
+
+
+
+    </section>
+
+  </body>
+  <script>
+    const myArray = ['tomatoes', 'chick peas', 'onions', 'rice', 'black beans'];
+    const list = document.createElement('ul');
+
+    // Add your code here
+    function genRandInt(intLength, intLimitStart, intLimitEnd) {
+        // TO FIX (probably with null check)
+        if (i === 1) {
+            let randNum = `${Math.floor(Math.random()*(10**intLength))}`;
+            return randNum.padEnd(n, '0');
+        } else {
+            const difference = inLimitEnd - intLimitStart;
+            return Math.floor(Math.random()*(intLimitStart) + difference);
+        }
+    }
+
+    // Array containing the first 3 digits of phonenumbers from some SA carriers
+
+    function genFirstThree() {
+        let firstThree = '0'
+
+    }
+
+    const firstThreeArray = ['083', '082', '072', '063'];
+    function genRandPhoneNumber() {
+        const phoneNumberArray = [];
+        phoneNumberArray.push(firstThreeArray[genRandInt(1, firstThreeArray.length)]);
+        phoneNumberArray.push(genRandInt(3, 1));
+        phoneNumberArray.push(genRandInt(4, 1));
+        phoneNumber = phoneNumberArray.join(' ');
+        return phoneNumber;
+    }
+
+    const firstNames = ['Jack', 'John', 'Jason', 'Carl', 'Kyle', 'Jill', 'Yennifer', 'Sarah', 'Summer', 'Rick'];
+    const lastNames = ['Johnnson', 'White', 'Pinkman', 'of Rivia', 'van Hellsing', 'Spires', 'Baker']
+    function genRandName() {
+        firstName = firstNames[genRandInt(1, firstNames.length)];
+        lastName = lastNames[genRandInt(1, lastNames.length)];
+        return `${firstName} ${lastName}`;
+    }
+
+    function genPhonebook(n) {
+        const phoneBook = [];
+        for (let i = 0; i < n; i++) {
+            contact = {
+                name: genRandName(),
+                phoneNumber: genRandPhoneNumber()
+            }
+            phoneBook.push(contact);
+        }
+        return phoneBook;
+    }
+
+    console.log(genPhonebook(10));
+
+    function phoneNumberCheck(n) {
+        // Test for if all n phone numbers are the correct length
+        phonebook = genPhonebook(n);
+        for (let contact of phonebook) {
+            if (contact.phoneNumber.length !== 12) {
+                return `Test failed.\nNumber: ${contact.phoneNumber}\nLength: ${contact.phoneNumber.length}`;
+            } 
+        }
+        return 'Test passed!';
+    }
+
+    // console.log(phoneNumberCheck(1000));
+
+    // Don't edit the code below here!
+
+    const section = document.querySelector('section');
+    section.appendChild(list);
+  </script>
+
+</html>
