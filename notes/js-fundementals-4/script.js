@@ -103,4 +103,64 @@ document.querySelector('#contact-add-button').addEventListener('click', () => {
 function contactSearch() {
 }
 
+// break and continue
+function whileLoopDemo() {
+    let i = 0;
+    // Standard while loop
+    console.log('Standard while loop');
+    while (i < 10) {
+        // Remember: can do if statements on one line and omit curly brackets
+        // if the code body is one line
+        if (i % 2 === 0) console.log(i); // Logs even numbers
+        i++;
+    }
+
+    // do...while loop
+    // Condition comes after body, body is always run at least once
+    console.log("do...while loop");
+    i = 0;
+    do {
+        if (i % 2 === 0) console.log(i);
+        i++;
+    } while (i < 10)
+
+    console.log('For loop with continue condition');
+    // Can omit the begin condition since i is already defined
+    i = 0;
+    for (; i < 10; i++) {
+        // continue skips the current iteration
+        if (i % 2 !== 0) continue;
+        console.log(i);
+    }
+    
+    // Labels for break and continue
+    // Used to break or continue out of a specific loop in a series of nested loops
+    // Also works with continue
+    // Basically will continue from or break from the label
+    outer: 
+    for (let i = 0; i < 3; i++) {
+        for (let j = 0; j < 3; j++) {
+            let input = prompt(`Value at coords (${i}, ${j})?`);
+            // better way of input checking than using isNaN()?
+            if (!input) {
+                alert('Loop broken');
+                break outer;
+            }
+            console.log(`Value at coords (${i}, ${j}) = ${input}`);
+        }
+    }
+    
+
+    // Can break out of any labelled code block
+    testLabel: {
+        const input = prompt('Enter a value from 0 - 9');
+        if (input < 0 || input > 9) {
+            alert('You broke the rules!')
+            break testLabel;
+        }
+        console.log(input);
+    }
+}
+whileLoopDemo();
+
 
