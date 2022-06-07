@@ -12,8 +12,8 @@ const myObject = {
     }
 }
 
-myObject.how; // 'does it matter?'
-myObject.when; // undefined (?)
+// myObject.how; // 'does it matter?'
+// myObject.when; // undefined (?)
 
 function genRandomArray(n) {
     const outputArray = []
@@ -91,7 +91,7 @@ function loopsDemo() {
     console.log(lCats); // [Leopard, Lion]
 
 }
-loopsDemo();
+// loopsDemo();
 
 // Contact add and search
 
@@ -99,9 +99,6 @@ loopsDemo();
 //     const newContactName = document.querySelector('#add-name-input').value;
 //     const newContactNumber = document.querySelector('#add-number-input').value;
 // })
-
-function contactSearch() {
-}
 
 // break and continue
 function whileLoopDemo() {
@@ -193,7 +190,7 @@ function argDemo() {
     }
    argumentsTestFunction('Argument 1', 'Argument 2', 'Argument 3');
 }
-argDemo();
+// argDemo();
 
 function genRandInt(numLength, numLimit=[0, 9]) {
     // numLength = number of digits in number
@@ -212,5 +209,13 @@ function genRandInt(numLength, numLimit=[0, 9]) {
 
 function spreadDemo() {
     // The Spread Operator
-    // Used to represent all 
+    // Used to represent all elements in an array
+    // Useful for adding elements
+    const demoArr = [];
+    const n = 5;
+    for (let i = 0; i < n; i++) {
+        demoArr.push(genRandInt(1));
+    }
+    console.log(demoArr);
 }
+spreadDemo();
