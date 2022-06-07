@@ -1,7 +1,12 @@
-const repeatString = function(stringInput, n) {
-    let finalString;
-    for (let i; i < n; i++) {
-        finalString += stringInput;
+const repeatString = function(string, num) {
+    let finalString = '';
+    if (num < 0) {
+        return 'ERROR'
+    }
+    for (let i = 0; i < num; i++) {
+        finalString += string;
+        console.log(finalString);
+        console.log(i);
     }
     return finalString;
 };
