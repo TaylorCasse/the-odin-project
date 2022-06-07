@@ -95,10 +95,10 @@ loopsDemo();
 
 // Contact add and search
 
-document.querySelector('#contact-add-button').addEventListener('click', () => {
-    const newContactName = document.querySelector('#add-name-input').value;
-    const newContactNumber = document.querySelector('#add-number-input').value;
-})
+// document.querySelector('#contact-add-button').addEventListener('click', () => {
+//     const newContactName = document.querySelector('#add-name-input').value;
+//     const newContactNumber = document.querySelector('#add-number-input').value;
+// })
 
 function contactSearch() {
 }
@@ -161,6 +161,56 @@ function whileLoopDemo() {
         console.log(input);
     }
 }
-whileLoopDemo();
+// whileLoopDemo();
 
+function argDemo() {
+    // Arguments Object
+    // Can call the arguments of a function using zero-based indexing
 
+    function argumentsTestFunction(arg1='Argument 1', arg2='Argument 2', agr3='Argument 3') {
+        // Acts like an array in that it can be indexed with numbers
+        // but it doesn't have array methods.
+        // Interestingly, it returns undefined if no arguments are given in the call,
+        // even if default values are present.
+        console.log('\nArguments object test');
+        console.log(arguments[0]);  // 'Argument 1'
+        console.log(arguments[1]);  // 'Argument 2'
+        console.log(arguments[3]);  // undefined
+
+        // Can be made into a real array
+        // using this:
+        let argsArr1 = Array.prototype.slice.call(arguments)
+        console.log(argsArr1);
+        // using array literal
+        let argsArr2 = [].slice.call(arguments);
+        console.log(argsArr2);
+        // using .from()
+        let argsArr3 = Array.from(arguments);
+        console.log(argsArr3);
+        // using spread operator 
+        let argsArr4 = [...arguments];
+        console.log(argsArr4);
+    }
+   argumentsTestFunction('Argument 1', 'Argument 2', 'Argument 3');
+}
+argDemo();
+
+function genRandInt(numLength, numLimit=[0, 9]) {
+    // numLength = number of digits in number
+    // numLimit = 2 element array where the first and second elements are the lower and upper limits on each digit respectively
+    const returnArray = [];
+    const min = Math.floor(numLimit[0]);
+    const max = Math.ceil(numLimit[1]);
+    for (let i = 0; i < numLength; i++) {
+        let currentDigit = Math.floor(Math.random() * (max - min + 1)) + min;
+        returnArray.push(currentDigit);
+    }
+    return +returnArray.join('');
+}
+
+// console.log(genRandInt(12, [0, 1]));
+
+function spreadDemo() {
+    // The Spread Operator
+    // Used to represent all 
+}
